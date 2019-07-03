@@ -1,12 +1,12 @@
 <template lang="html">
   <div class="">
-    tab
+    list
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Tab'
+  name: 'RecommandList'
 }
 </script>
 

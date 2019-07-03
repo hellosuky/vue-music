@@ -21,5 +21,9 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="css">
+*{
+  margin:0;
+  padding:0;
+}
 </style>

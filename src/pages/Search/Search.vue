@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="">
-    搜索页面
+    search
   </div>
 </template>
 
@@ -10,5 +10,5 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="css" scoped>
 </style>

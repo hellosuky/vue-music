@@ -1,14 +1,13 @@
 <template lang="html">
   <div class="">
-    排行页面
+    new
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Rank'
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="css" scoped>
 </style>

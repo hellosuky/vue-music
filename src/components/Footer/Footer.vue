@@ -1,14 +1,14 @@
 <template lang="html">
   <div class="">
-    歌手页面
+    footer
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Singer'
+  name: 'MyFooter'
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="css" scoped>
 </style>
