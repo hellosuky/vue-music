@@ -1,23 +1,12 @@
 <template>
   <div id="app">
-    <my-header></my-header>
-    <tab></tab>
-    <keep-alive>
-      <router-view></router-view>
-    </keep-alive>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import MyHeader from '@/components/Header/Header'
-import Tab from '@/components/Tab/Tab'
-
 export default {
-  name: 'App',
-  components: {
-    MyHeader,
-    Tab
-  }
+  name: 'App'
 }
 </script>
 
@@ -25,5 +14,11 @@ export default {
 *{
   margin:0;
   padding:0;
+}
+body,html{
+  height: 100%;
+}
+#app{
+  height: 100%;
 }
 </style>
