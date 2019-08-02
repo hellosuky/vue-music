@@ -1,12 +1,12 @@
 <template lang="html">
   <div class="">
-
+    f
   </div>
 </template>
 
 <script>
 export default {
-  name: 'My'
+  name: 'Search'
 }
 </script>
 

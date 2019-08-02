@@ -18,11 +18,11 @@ export default {
   name: 'Login',
   methods: {
     handleClick () {
-      if(!this.userName) {
+      if (!this.userName) {
         alert('请你输入手机号')
         return
       }
-      if(!this.userPwd) {
+      if (!this.userPwd) {
         alert('请你输入密码')
         return
       }

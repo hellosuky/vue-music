@@ -3,7 +3,7 @@
     <div class="my-built">
       <p class="title">创建的歌单({{builtList.length}})</p>
       <div class="built-wrapper">
-        <div class="item" v-for="item in builtList" :key="item.id">
+        <div class="item" v-for="item in builtList" :key="item.id" @click="handlePlayList(item.id)">
           <img :src="item.coverImgUrl" alt="img"/>
           <div class="words">
             <p>{{item.name}}</p>
@@ -14,7 +14,7 @@
     </div>
     <div class="my-collection">
       <p class="title">收藏的歌单({{collectionList.length}})</p>
-      <div class="item" v-for="item in collectionList" :key="item.id">
+      <div class="item" v-for="item in collectionList" :key="item.id" @click="handlePlayList(item.id)">
         <img :src="item.coverImgUrl" alt="img"/>
         <div class="words">
           <p>{{item.name}}</p>
@@ -38,6 +38,9 @@ export default {
             this.list = res.data.playlist
           }
         })
+    },
+    handlePlayList (id) {
+      this.$router.push(`/playlist/${id}`)
     }
   },
   created () {

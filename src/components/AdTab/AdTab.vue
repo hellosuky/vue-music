@@ -28,7 +28,7 @@ export default {
 .tab-wrapper{
   position: fixed;
   left:0;
-  top:80px;
+  top:70px;
   height: 45px;
   line-height: 45px;
   width:100%;

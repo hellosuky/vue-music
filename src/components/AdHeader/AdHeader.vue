@@ -23,7 +23,7 @@ export default {
 <style lang="css" scoped>
 .header-wrapper{
   background: #d43c33;
-  height: 80px;
+  height: 70px;
   display: flex;
   align-items: center;
   position: fixed;

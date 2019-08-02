@@ -88,7 +88,7 @@ export default {
 
 <style lang="css" scoped>
 .recommand-music{
-  margin-top: 148px;
+  margin-top: 132px;
 }
 .recommand-title{
   border-left: 2px solid #d43c33;

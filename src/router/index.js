@@ -66,6 +66,18 @@ export default new Router({
           component: () => import('@/pages/Friend/Friend')
         }
       ]
+    },
+    {
+      path: '/playlist/:id',
+      component: () => import('@/pages/PlayList/PlayList')
+    },
+    {
+      path: '/song',
+      component: () => import('@/pages/Song/Song')
+    },
+    {
+      path: '/dayrecommand',
+      component: () => import('@/pages/Recommand/Recommand')
     }
   ]
 })

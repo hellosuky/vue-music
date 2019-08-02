@@ -2,7 +2,7 @@
   <div class="">
     <banner></banner>
     <div class="icon-wrapper">
-      <div class="icon-item">
+      <div class="icon-item" @click="handleRecommand">
         <span class="icon"><i class="iconfont icon-rili"></i></span>
         <span>每日推荐</span>
       </div>
@@ -22,7 +22,8 @@
     <div class="recommand-list">
       <p class="recommand-title">推荐歌单</p>
       <div class="recommand-wrapper">
-        <div class="recommand-item" v-for="item in recommandList" :key="item.id">
+        <div class="recommand-item" v-for="item in recommandList" :key="item.id"
+        @click="handlePlayList(item.id)">
           <img :src="item.picUrl" alt="recommand-pic"/>
           <span>{{item.name.length>15 ? item.name.substring(0,15) + '...' : item.name}}</span>
           <div class="play-count">
@@ -35,7 +36,8 @@
     <div class="newsong-list">
       <p class="newsong-title">新歌速递</p>
       <div class="newsong-wrapper">
-        <div class="newsong-item" v-for="item in newSongList" :key="item.id">
+        <div class="newsong-item" v-for="(item,index) in newSongList" :key="item.id"
+        @click="handleNewSong(index)">
           <img :src="item.album.picUrl" alt="pic"/>
           <div class="play-btn"><i class="iconfont icon-play2"></i></div>
         </div>
@@ -47,13 +49,19 @@
 <script>
 import axios from 'axios'
 import Banner from '@/components/Banner/Banner'
+import { mapActions } from 'vuex'
 import '@/assets/css/iconfont.css'
+
 export default {
   name: 'Find',
   components: {
     Banner
   },
   methods: {
+    ...mapActions([
+      'getSequenceList',
+      'getCurrentIndex'
+    ]),
     _getRecommand () {
       axios.get('/api/personalized')
         .then(res => {
@@ -61,10 +69,10 @@ export default {
             this.recommandList = res.data.result.slice(0, 6)
             this.recommandList.map(v => {
               if (v.playCount > 100000 && v.playCount < 100000000) {
-                v.playCount = (v.playCount / 100000).toFixed(0) + '万'
+                v.playCount = (v.playCount / 10000).toFixed(0) + '万'
               }
               if (v.playCount > 100000000) {
-                v.playCount = (v.playCount / 100000000).toFixed(1) + '亿'
+                v.playCount = (v.playCount / 10000000).toFixed(1) + '亿'
               }
             })
           }
@@ -77,6 +85,17 @@ export default {
             this.newSongList = res.data.data.slice(0, 6)
           }
         })
+    },
+    handlePlayList (id) {
+      this.$router.push(`/playlist/${id}`)
+    },
+    handleRecommand () {
+      this.$router.push('/dayrecommand')
+    },
+    handleNewSong (index) {
+      this.getCurrentIndex(index)
+      this.getSequenceList(this.newSongList)
+      this.$router.push(`/song`)
     }
   },
   created () {
@@ -171,7 +190,7 @@ export default {
   flex-wrap: wrap;
 }
 .newsong-item{
-  width: 30%;
+  width: 29%;
   margin:5px 5px 8px 5px;
   position: relative;
 }
